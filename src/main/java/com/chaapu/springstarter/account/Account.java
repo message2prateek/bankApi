@@ -24,7 +24,7 @@ public class Account {
 
     @Id
     @GeneratedValue
-    @Min(1000000)
+    @Min(100000)
     private int id;
 
     private String name;
