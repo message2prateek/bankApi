@@ -8,9 +8,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @ApiModel(value = "Customer", description = "Customer information")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Customer {
     @Id
     @Min(value = 100)

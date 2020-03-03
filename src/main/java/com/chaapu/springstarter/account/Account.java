@@ -8,13 +8,18 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 @Entity
 @JacksonXmlRootElement
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "customer"})
 public class Account {
 
     @Id
@@ -84,7 +89,8 @@ public class Account {
     }
 
     public void setBalance(float balance) {
-        this.balance = balance;
+        BigDecimal bd = new BigDecimal(balance).setScale(2, RoundingMode.FLOOR);
+        this.balance = bd.doubleValue();
     }
 
     public Customer getCustomer() {
