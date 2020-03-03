@@ -2,18 +2,14 @@ package com.chaapu.springstarter.account;
 
 import com.chaapu.springstarter.customer.Customer;
 import com.chaapu.springstarter.customer.CustomerType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -23,7 +19,8 @@ import java.math.RoundingMode;
 public class Account {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue(strategy=SEQUENCE,generator = "seq")
+//    @SequenceGenerator(name = "seq", initialValue = 100000, sequenceName = "oracle_seq")
     @Min(100000)
     private int id;
 
@@ -37,8 +34,10 @@ public class Account {
     @Max(10000)
     private BigDecimal balance;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     public Account() {

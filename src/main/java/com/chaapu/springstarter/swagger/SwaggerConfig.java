@@ -34,9 +34,9 @@ public class SwaggerConfig {
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
                 .title("BANK API")
-                .description("REST API to compliment the Intermediate API Testing Training")
-                .termsOfServiceUrl("www.bnz.co.nz")
-                .contact(new Contact("Prateek Sharma", "https://github.com/message2prateek", "Prateek_Sharma@bnz.co.nz"))
+                .description("API to compliment the REST API Testing Training")
+                .termsOfServiceUrl("www.anz.co.nz")
+                .contact(new Contact("Mandakini Mishra", "https://github.com/message2prateek", "Mandakini.Mishra@anz.co.nz"))
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
                 .version("2.0")

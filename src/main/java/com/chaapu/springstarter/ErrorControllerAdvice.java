@@ -25,7 +25,9 @@ public class ErrorControllerAdvice {
                 .build();
 
 
-        return new ResponseEntity<ErrorResponse>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<ErrorResponse>(response,
+                new HttpHeaders(),
+                HttpStatus.NOT_FOUND);
 
     }
 
@@ -39,8 +41,9 @@ public class ErrorControllerAdvice {
                 .withMessage(ex.getMessage())
                 .build();
 
-        return new ResponseEntity<ErrorResponse>(response, new HttpHeaders(), HttpStatus.CONFLICT);
+        return new ResponseEntity<ErrorResponse>(response,
+                new HttpHeaders(),
+                HttpStatus.CONFLICT);
 
     }
-
 }
