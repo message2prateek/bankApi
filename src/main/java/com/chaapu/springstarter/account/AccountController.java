@@ -64,7 +64,7 @@ public class AccountController {
     @ResponseStatus(value = HttpStatus.OK)
     @ApiResponses(value = { @ApiResponse(code = 200, message = "OK") })
     @ApiOperation(value = "Delete an Account identified by ID")
-    public ResponseEntity deleteAccount(@PathVariable String customerId, @PathVariable int id) {
+    public ResponseEntity deleteAccount(@PathVariable int customerId, @PathVariable int id) {
         return accountService.deleteAccount(id);
     }
 }

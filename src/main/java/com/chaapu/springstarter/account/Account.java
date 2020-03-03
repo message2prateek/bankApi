@@ -24,6 +24,7 @@ public class Account {
 
     @Id
     @GeneratedValue
+    @Min(1000000)
     private int id;
 
     private String name;
@@ -34,7 +35,7 @@ public class Account {
 
     @Min(50)
     @Max(10000)
-    private double balance;
+    private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -43,7 +44,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String name, String type, String status, double balance, int customerId) {
+    public Account(int id, String name, String type, String status, BigDecimal balance, int customerId) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -84,13 +85,12 @@ public class Account {
         this.status = status;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(float balance) {
-        BigDecimal bd = new BigDecimal(balance).setScale(2, RoundingMode.FLOOR);
-        this.balance = bd.doubleValue();
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance.setScale(2, RoundingMode.FLOOR);
     }
 
     public Customer getCustomer() {
