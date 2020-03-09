@@ -1,7 +1,7 @@
 INSERT INTO customer values
-(100,'Mandakini', 'Business'),
-(101, 'Viraj', 'Individual'),
-(102, 'Veer', 'Individual');
+(100,'John', 'Business'),
+(101, 'Stephen', 'Individual'),
+(102, 'Mark', 'Individual');
 
 INSERT INTO account(id, name, type, status, balance, customer_id) values -- for ManyToOne relationships use customer_id instead of customerId or customer
 (111111, 'Go', 'Current', 'Open', 200.01, 100),

@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 .title("BANK API")
                 .description("API to compliment the REST API Testing Training")
                 .termsOfServiceUrl("www.anz.co.nz")
-                .contact(new Contact("Mandakini Mishra", "https://github.com/message2prateek", "Mandakini.Mishra@anz.co.nz"))
+                .contact(new Contact("Mandakini Mishra", "https://github.com/mandakinimishra", "Mandakini.Mishra@anz.co.nz"))
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
                 .version("2.0")

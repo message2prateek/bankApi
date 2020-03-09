@@ -4,7 +4,10 @@ buildscript {
         springBootVersion = '2.0.5.RELEASE'
     }
     repositories {
-        mavenCentral()
+        mavenLocal()
+        maven {
+            url "https://digital.artifacts.nz.thenational.com/repository/digital-maven/"
+        }
     }
     dependencies {
         classpath("${springBootPlugin}:${springBootVersion}")
